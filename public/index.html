@@ -3,6 +3,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ektrollet - Brädspelscafé i Vadstena</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,9 +17,28 @@
             box-sizing: border-box;
         }
 
+        .biggest {
+            font-size: 32px;
+        }
+
+
+        .flexible-padding {
+            padding: 16px;
+        }
+
+        @media (min-width: 800px) {
+            .biggest {
+                font-size: 64px;
+            }
+
+            .flexible-padding {
+                padding: 32px;
+            }
+        }
+
         a,
         a:visited {
-            color: #1d4d37;
+            color: #478d5b;
             text-decoration: none;
             padding: 6px;
         }
@@ -85,6 +105,10 @@
 
         .rounded {
             border-radius: 15px;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
         }
 
         .bg-white {
@@ -155,34 +179,32 @@
 </head>
 
 <body>
-    <div class="flex horizontal-center">
-        <div class="max-width-800 rounded bg-white padding-32 margin-12 flex-1 padding-bottom-32 drop-shadow">
-            <div class="flex horizontal-center vertical-center gap-8">
-                <div class="max-width-128 min-width-64">
-                    <img alt="Ektrollets Logga" src="assets/logo.png" />
-                </div>
-                <div>
-                    <h1 class="green-bright font-size-64 young-serif text-shadow">
-                        Ektrollet
-                    </h1>
-                </div>
+    <div class="flex horizontal-center column">
+        <div class="flex horizontal-center vertical-center gap-8">
+            <div class="max-width-128 min-width-64 margin-top-32">
+                <img alt="Ektrollets Logga" src="assets/logo.png" />
             </div>
-            <div class="horizontal-center gap-16 margin-top-16 margin-bottom-16">
-                <div><a href="#ektrollet">Ektrollet</a></div>
-                <div><a href="#lanespel">Lånespel</a></div>
-                <div><a href="#butik">Butik</a></div>
-                <div><a href="#evenemang">Evenemang</a></div>
+            <div>
+                <h1 class="green-bright biggest young-serif text-shadow">
+                    Ektrollet
+                </h1>
             </div>
-            <div class="horizontal-center gap-16 margin-bottom-16">
-                <div><a href="#oppettider">Öppettider</a></div>
-                <div><a href="#omoss">Om oss</a></div>
-                <div><a href="#kontakt">Kontakt</a></div>
-            </div>
+        </div>
+        <div class="horizontal-center gap-16 margin-top-16 margin-bottom-16 flex-wrap">
+            <div><a class="text-shadow" href="#ektrollet">Ektrollet</a></div>
+            <div><a class="text-shadow" href="#lanespel">Lånespel</a></div>
+            <div><a class="text-shadow" href="#butik">Butik</a></div>
+            <div><a class="text-shadow" href="#evenemang">Evenemang</a></div>
+            <div><a class="text-shadow" href="#oppettider">Öppettider</a></div>
+            <div><a class="text-shadow" href="#omoss">Om oss</a></div>
+            <div><a class="text-shadow" href="#kontakt">Kontakt</a></div>
+        </div>
 
 
 
 
 
+        <div class="max-width-800 rounded bg-white flexible-padding margin-12 flex-1 padding-bottom-32 drop-shadow">
 
 
 
@@ -194,11 +216,11 @@
             <p>
                 Ektrollet är ett brädspelscafé i centrala Vadstena.
             </p>
-            <div class="margin-top-8 margin-bottom-16">
+            <div class="margin-top-24 margin-bottom-32">
                 <div class="horizontal-center column">
                     <div class="max-width-400">
                         <img alt="Träbord vid öppet mosaikfönster. Utanför finns sommarens grönska."
-                            class="drop-shadow-s rounded margin-12" src="assets/foton/fonster.jpg" />
+                            class="drop-shadow-s rounded" src="assets/foton/fonster.jpg" />
                     </div>
                 </div>
                 <p class="margin-bottom-8">
