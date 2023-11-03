@@ -169,6 +169,8 @@
 
         ${[8, 10, 12, 16, 18, 32, 64].flatMap(n => ['font-size', 'gap'].map(s => `.${s}-${n} { ${s}: ${n}px; }`)).join("\n")}
 
+        ${['red'].flatMap(n => ['color'].map(s => `.${s}-${n} { ${s}: ${n}; }`)).join("\n")}
+
         ${[64, 100, 128, 200, 300, 400, 800].flatMap(n => ['width', 'max-width', 'min-width', 'max-height'].map(s => `.${s}-${n} { ${s}: ${n}px; }`)).join("\n")}
 
         ${[600, 700].flatMap(n => ['font-weight'].map(s => `.${s}-${n} { ${s}: ${n}; }`)).join("\n")}
@@ -213,6 +215,9 @@
             <h1 id="ektrollet" class="font-size-32 font-weight-700 margin-bottom-8">
                 Ektrollet
             </h1>
+            <p class="margin-bottom-8 font-size-18 color-red">
+                TILLFÄLLIGT STÄNGT p.g.a. sjukdom (fr.o.m. fre 3 nov 2023)
+            </p>
             <p>
                 Ektrollet är ett brädspelscafé i centrala Vadstena.
             </p>
@@ -376,6 +381,10 @@
 
 
                 <h2 id="oppettider" class="font-weight-700 font-size-24 margin-top-64 margin-bottom-8">Öppettider</h2>
+
+                <p class="margin-bottom-8 font-size-18 color-red">
+                    TILLFÄLLIGT STÄNGT p.g.a. sjukdom (fr.o.m. fre 3 nov 2023)
+                </p>
 
                 <p class="margin-bottom-8">
                     OBS: 6 - 8 nov har vi stängt pga semester.
