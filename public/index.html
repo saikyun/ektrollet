@@ -1,501 +1,540 @@
 <!DOCTYPE html>
 <meta charset="utf-8" />
 <html>
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ektrollet - Brädspelscafé i Vadstena</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Young+Serif&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Young+Serif&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
 
+      .biggest {
+        font-size: 32px;
+      }
+
+      .flexible-padding {
+        padding: 16px;
+      }
+
+      @media (min-width: 800px) {
         .biggest {
-            font-size: 32px;
+          font-size: 64px;
         }
-
 
         .flexible-padding {
-            padding: 16px;
+          padding: 32px;
         }
+      }
 
-        @media (min-width: 800px) {
-            .biggest {
-                font-size: 64px;
-            }
+      a,
+      a:visited {
+        color: #478d5b;
+        text-decoration: none;
+      }
 
-            .flexible-padding {
-                padding: 32px;
-            }
-        }
+      a:hover {
+        color: #478d5b;
+        text-decoration: underline;
+      }
 
-        a,
-        a:visited {
-            color: #478d5b;
-            text-decoration: none;
-        }
+      p,
+      li,
+      a {
+        line-height: 1.4em;
+        font-size: 16px;
+      }
 
-        a:hover {
-            color: #478d5b;
-            text-decoration: underline;
-        }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      body {
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+      }
 
-        p,
-        li,
-        a {
-            line-height: 1.4em;
-            font-size: 16px;
-        }
+      .space-between {
+        justify-content: space-between;
+      }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        body {
-            font-family: 'Nunito Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-        }
+      .green-dark {
+        color: #1d4d37;
+      }
 
-        .space-between {
-            justify-content: space-between;
-        }
+      .green-bright {
+        color: #478d5b;
+      }
 
-        .green-dark {
-            color: #1d4d37;
-        }
+      .young-serif {
+        font-family: "Young Serif", serif;
+      }
 
-        .green-bright {
-            color: #478d5b;
-        }
+      body {
+        background: url("assets/bg.jpg") center;
+        background-color: #280b00;
+        /* background-size: cover; */
+      }
 
-        .young-serif {
-            font-family: 'Young Serif', serif;
-        }
+      .flex {
+        display: flex;
+      }
 
-        body {
-            background: url('assets/bg.jpg') center;
-            background-color: #280b00;
-            /* background-size: cover; */
-        }
+      .horizontal-center {
+        justify-content: center;
+        display: flex;
+      }
 
-        .flex {
-            display: flex;
-        }
+      .vertical-center {
+        align-items: center;
+        display: flex;
+      }
 
-        .horizontal-center {
-            justify-content: center;
-            display: flex;
-        }
+      .rounded {
+        border-radius: 15px;
+      }
 
-        .vertical-center {
-            align-items: center;
-            display: flex;
-        }
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
 
-        .rounded {
-            border-radius: 15px;
-        }
+      .bg-white {
+        background-color: white;
+      }
 
-        .flex-wrap {
-            flex-wrap: wrap;
-        }
+      .flex-1 {
+        flex: 1;
+      }
 
-        .bg-white {
-            background-color: white;
-        }
+      .width-100p {
+        width: 100%;
+      }
 
-        .flex-1 {
-            flex: 1;
-        }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
 
-        .width-100p {
-            width: 100%;
-        }
+      .column {
+        display: flex;
+        flex-direction: column;
+      }
 
-        img {
-            max-width: 100%;
-            max-height: 100%;
-        }
+      .row {
+        display: flex;
+        flex-direction: row;
+      }
 
-        .column {
-            display: flex;
-            flex-direction: column;
-        }
+      .column.horizontal-center {
+        align-items: center;
+      }
 
-        .row {
-            display: flex;
-            flex-direction: row;
-        }
+      .text-shadow {
+        text-shadow: 1px 1px 2px #1d4d37;
+      }
 
-        .column.horizontal-center {
-            align-items: center;
-        }
+      .drop-shadow {
+        box-shadow: 0px 3px 20px black;
+      }
 
-        .text-shadow {
-            text-shadow: 1px 1px 2px #1d4d37;
-        }
+      img.drop-shadow {
+        box-shadow: none;
+        filter: drop-shadow(0px 3px 20px black);
+      }
 
-        .drop-shadow {
-            box-shadow: 0px 3px 20px black;
-        }
-
-        img.drop-shadow {
-            box-shadow: none;
-            filter: drop-shadow(0px 3px 20px black);
-        }
-
-        img.drop-shadow-s {
-            box-shadow: none;
-            filter: drop-shadow(0px 5px 5px #00000077);
-        }
+      img.drop-shadow-s {
+        box-shadow: none;
+        filter: drop-shadow(0px 5px 5px #00000077);
+      }
     </style>
 
     <script>
-        var style = document.createElement('style');
-        style.type = 'text/css';
-        style.innerHTML = `
+      var style = document.createElement("style");
+      style.type = "text/css";
+      style.innerHTML = `
 
-        ${[8, 12, 16, 24, 32, 48, 64].flatMap(n => ['margin', 'margin-top', 'margin-bottom', 'margin-left', 'margin-right', 'padding', 'padding-bottom', 'padding-top', 'font-size'].map(s => `.${s}-${n} { ${s}: ${n}px; }`)).join("\n")}
+        ${[8, 12, 16, 24, 32, 48, 64]
+          .flatMap((n) =>
+            [
+              "margin",
+              "margin-top",
+              "margin-bottom",
+              "margin-left",
+              "margin-right",
+              "padding",
+              "padding-bottom",
+              "padding-top",
+              "font-size",
+            ].map((s) => `.${s}-${n} { ${s}: ${n}px; }`)
+          )
+          .join("\n")}
 
-        ${[8, 10, 12, 16, 18, 32, 64].flatMap(n => ['font-size', 'gap'].map(s => `.${s}-${n} { ${s}: ${n}px; }`)).join("\n")}
+        ${[8, 10, 12, 16, 18, 32, 64]
+          .flatMap((n) =>
+            ["font-size", "gap"].map((s) => `.${s}-${n} { ${s}: ${n}px; }`)
+          )
+          .join("\n")}
 
-        ${['red'].flatMap(n => ['color'].map(s => `.${s}-${n} { ${s}: ${n}; }`)).join("\n")}
+        ${["red"]
+          .flatMap((n) => ["color"].map((s) => `.${s}-${n} { ${s}: ${n}; }`))
+          .join("\n")}
 
-        ${[64, 100, 128, 200, 300, 400, 800].flatMap(n => ['width', 'max-width', 'min-width', 'max-height'].map(s => `.${s}-${n} { ${s}: ${n}px; }`)).join("\n")}
+        ${[64, 100, 128, 200, 300, 400, 800]
+          .flatMap((n) =>
+            ["width", "max-width", "min-width", "max-height"].map(
+              (s) => `.${s}-${n} { ${s}: ${n}px; }`
+            )
+          )
+          .join("\n")}
 
-        ${[600, 700].flatMap(n => ['font-weight'].map(s => `.${s}-${n} { ${s}: ${n}; }`)).join("\n")}
+        ${[600, 700]
+          .flatMap((n) =>
+            ["font-weight"].map((s) => `.${s}-${n} { ${s}: ${n}; }`)
+          )
+          .join("\n")}
 `;
-        document.getElementsByTagName('head')[0].appendChild(style);
+      document.getElementsByTagName("head")[0].appendChild(style);
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="flex horizontal-center column">
-        <div class="flex horizontal-center vertical-center gap-8 padding-top-32">
-            <div class="max-width-128 min-width-64">
-                <img alt="Ektrollets Logga" src="assets/logo.png" />
+      <div class="flex horizontal-center vertical-center gap-8 padding-top-32">
+        <div class="max-width-128 min-width-64">
+          <img alt="Ektrollets Logga" src="assets/logo.png" />
+        </div>
+        <div>
+          <h1 class="green-bright biggest young-serif">Ektrollet</h1>
+        </div>
+      </div>
+      <div
+        class="horizontal-center gap-16 margin-top-16 margin-bottom-16 flex-wrap"
+      >
+        <div><a href="#ektrollet">Ektrollet</a></div>
+        <div><a href="#lanespel">Lånespel</a></div>
+        <div><a href="#butik">Butik</a></div>
+        <div><a href="#evenemang">Evenemang</a></div>
+        <div><a href="#bokning">Bokning</a></div>
+        <div><a href="#oppettider">Öppettider</a></div>
+        <div><a href="#omoss">Om oss</a></div>
+        <div><a href="#kontakt">Kontakt</a></div>
+      </div>
+
+      <div
+        class="max-width-800 rounded bg-white flexible-padding margin-12 flex-1 padding-bottom-32 drop-shadow"
+      >
+        <h1 id="ektrollet" class="font-size-32 font-weight-700 margin-bottom-8">
+          Ektrollet
+        </h1>
+        <p>Ektrollet är ett brädspelscafé i centrala Vadstena.</p>
+
+        <p class="color-red font-size-24 margin-bottom-16">
+          Stängt idag (fr.o.m. fredag 15 dec) p.g.a. sjukdom
+        </p>
+
+        <div class="margin-top-24 margin-bottom-64">
+          <div class="horizontal-center column margin-bottom-16">
+            <div class="max-width-400">
+              <img
+                alt="Träbord vid öppet mosaikfönster. Utanför finns sommarens grönska."
+                class="drop-shadow-s rounded"
+                src="assets/foton/fonster.jpg"
+              />
             </div>
+          </div>
+          <p class="margin-bottom-8">
+            Kom och spela brädspel, fika och drick kaffe i en mysig och
+            barnvänlig miljö.
+          </p>
+          <p class="margin-bottom-8">
+            Det kostar ingenting att spela, och alla är välkomna oavsett ålder.
+          </p>
+          <p class="margin-bottom-8">
+            Är du ny till brädspel? Kom in så hjälper vi dig komma igång!
+          </p>
+          <p class="margin-bottom-8">
+            Letar du andra att spela med? Kom på våra spelkvällar, eller ta en
+            titt på vår <a href="#spelkompis">Spelkompis-lista</a>.
+          </p>
+
+          <h2
+            id="lanespel"
+            class="font-size-32 font-weight-700 margin-bottom-8 margin-top-64"
+          >
+            Lånespel
+          </h2>
+
+          <div class="horizontal-center column margin-bottom-16">
+            <div class="max-width-400">
+              <img
+                alt="Hylla full med brädspel att låna."
+                class="drop-shadow-s rounded"
+                src="assets/foton/lanespel.jpg"
+              />
+            </div>
+          </div>
+
+          <p class="margin-bottom-8">
+            Från vår lånehylla kan du låna spel medan du är här. Helt gratis!
+          </p>
+
+          <p>Ett urval av spel du kan låna här:</p>
+          <ul class="margin-left-16">
+            <li>Dragomino</li>
+            <li>Monopol</li>
+            <li>Ticket to Ride</li>
+            <li>Carcassonne</li>
+            <li>Joking Hazard</li>
+            <li>Everdell</li>
+            <li>Terra Mystica</li>
+          </ul>
+
+          <h2
+            id="butik"
+            class="font-size-32 font-weight-700 margin-bottom-8 margin-top-64"
+          >
+            Butik
+          </h2>
+
+          <div class="horizontal-center column margin-bottom-16">
+            <div class="max-width-400">
+              <img
+                alt="Hylla full med brädspel till salu."
+                class="drop-shadow-s rounded"
+                src="assets/foton/butik.jpg"
+              />
+            </div>
+          </div>
+
+          <p>
+            Vi har en butiksdel med brädspel till salu. Allt från barnspel och
+            klassiker som Monopol och Risk, till moderna klassiker som Catan,
+            och till sist spel som kan tillfredsställa den mest inbitne
+            spelaren, som Root, Terraforming Mars och Eclipse.
+          </p>
+
+          <h2
+            id="evenemang"
+            class="font-size-32 font-weight-700 margin-bottom-8 margin-top-64"
+          >
+            Evenemang
+          </h2>
+
+          <p>
+            Alla evenemang har gratis inträde.<br />
+            Man får alltid ta med en egen grupp och spela andra spel, även under
+            evenemang.<br />
+            Är du ensam och vill spela brädspel med andra? Kom då i början av en
+            spelkväll så fixar vi en grupp till dig!
+          </p>
+
+          <h3 class="font-size-24 margin-bottom-8 margin-top-16">
+            Varje Måndag
+          </h3>
+
+          <div class="row space-between">
+            <div>NYBÖRJARSPELKVÄLL</div>
+            <div>17:00 - 18:00</div>
+          </div>
+
+          <p class="margin-bottom-8">
+            Lär dig spela brädspel!<br />
+            Vi lär dig lätta brädspel:<br />
+            Carcassonne, Skyjo, Dragomino, Ohanami, Gold Fever<br />
+            Ålder: 4-99
+          </p>
+
+          <div class="row space-between">
+            <div>MEDEL - AVANCERAD</div>
+            <div>18:00 - 21:00</div>
+          </div>
+
+          <p class="margin-bottom-8">
+            Är du en van brädspelare, eller nyfiken på mer avancerade
+            brädspel?<br />
+            Då är det här tillfället för dig!<br />
+            Vi spelar spel som Root, Everdell och Rajas of the Ganges.
+          </p>
+
+          <h3 class="font-size-24 margin-bottom-8 margin-top-16">
+            Speciella evenemang
+          </h3>
+
+          <div class="font-size-16 row space-between">
             <div>
-                <h1 class="green-bright biggest young-serif ">
-                    Ektrollet
-                </h1>
+              För aktuella evenemang, se vår
+              <a href="https://facebook.com/ektrollet">facebook-sida</a>.
             </div>
-        </div>
-        <div class="horizontal-center gap-16 margin-top-16 margin-bottom-16 flex-wrap">
-            <div><a href="#ektrollet">Ektrollet</a></div>
-            <div><a href="#lanespel">Lånespel</a></div>
-            <div><a href="#butik">Butik</a></div>
-            <div><a href="#evenemang">Evenemang</a></div>
-            <div><a href="#bokning">Bokning</a></div>
-            <div><a href="#oppettider">Öppettider</a></div>
-            <div><a href="#omoss">Om oss</a></div>
-            <div><a href="#kontakt">Kontakt</a></div>
-        </div>
-
-
-
-
-
-        <div class="max-width-800 rounded bg-white flexible-padding margin-12 flex-1 padding-bottom-32 drop-shadow">
-
-
-
-
-
-            <h1 id="ektrollet" class="font-size-32 font-weight-700 margin-bottom-8">
-                Ektrollet
-            </h1>
-            <p>
-                Ektrollet är ett brädspelscafé i centrala Vadstena.
-            </p>
-
-            <div class="margin-top-24 margin-bottom-64">
-                <div class="horizontal-center column margin-bottom-16">
-                    <div class="max-width-400">
-                        <img alt="Träbord vid öppet mosaikfönster. Utanför finns sommarens grönska."
-                            class="drop-shadow-s rounded" src="assets/foton/fonster.jpg" />
-                    </div>
-                </div>
-                <p class="margin-bottom-8">
-                    Kom och spela brädspel, fika och drick kaffe i en mysig och barnvänlig miljö.
-                </p>
-                <p class="margin-bottom-8">
-                    Det kostar ingenting att spela, och alla är välkomna oavsett ålder.
-                </p>
-                <p class="margin-bottom-8">
-                    Är du ny till brädspel? Kom in så hjälper vi dig komma igång!
-                </p>
-                <p class="margin-bottom-8">
-                    Letar du andra att spela med? Kom på våra spelkvällar, eller ta en titt på vår <a
-                        href="#spelkompis">Spelkompis-lista</a>.
-                </p>
-
-
-
-
-
-
-
-
-                <h2 id="lanespel" class="font-size-32 font-weight-700 margin-bottom-8 margin-top-64">
-                    Lånespel
-                </h2>
-
-                <div class="horizontal-center column margin-bottom-16">
-                    <div class="max-width-400">
-                        <img alt="Hylla full med brädspel att låna." class="drop-shadow-s rounded"
-                            src="assets/foton/lanespel.jpg" />
-                    </div>
-                </div>
-
-                <p class="margin-bottom-8">
-                    Från vår lånehylla kan du låna spel medan du är här. Helt gratis!
-                </p>
-
-                <p>
-                    Ett urval av spel du kan låna här:
-                </p>
-                <ul class="margin-left-16">
-                    <li>Dragomino</li>
-                    <li>Monopol</li>
-                    <li>Ticket to Ride</li>
-                    <li>Carcassonne</li>
-                    <li>Joking Hazard</li>
-                    <li>Everdell</li>
-                    <li>Terra Mystica</li>
-                </ul>
-
-
-
-
-
-
-
-
-
-
-
-                <h2 id="butik" class="font-size-32 font-weight-700 margin-bottom-8 margin-top-64">
-                    Butik
-                </h2>
-
-                <div class="horizontal-center column margin-bottom-16">
-                    <div class="max-width-400">
-                        <img alt="Hylla full med brädspel till salu." class="drop-shadow-s rounded"
-                            src="assets/foton/butik.jpg" />
-                    </div>
-                </div>
-
-
-                <p>
-                    Vi har en butiksdel med brädspel till salu. Allt från barnspel och klassiker som Monopol och Risk,
-                    till moderna klassiker som Catan, och till sist spel som kan tillfredsställa den mest inbitne
-                    spelaren, som Root, Terraforming Mars och Eclipse.
-                </p>
-
-
-
-
-
-
-
-
-                <h2 id="evenemang" class="font-size-32 font-weight-700 margin-bottom-8 margin-top-64">
-                    Evenemang
-                </h2>
-
-                <p>Alla evenemang har gratis inträde.<br />
-                    Man får alltid ta med en egen grupp och spela andra spel, även under evenemang.<br />
-                    Är du ensam och vill spela brädspel med andra? Kom då i början av en spelkväll så fixar vi en grupp
-                    till dig!
-                </p>
-
-                <h3 class="font-size-24 margin-bottom-8 margin-top-16">Varje Måndag</h3>
-
-                <div class="row space-between">
-                    <div>
-                        NYBÖRJARSPELKVÄLL
-                    </div>
-                    <div>
-                        17:00 - 18:00
-                    </div>
-                </div>
-
-                <p class="margin-bottom-8">
-                    Lär dig spela brädspel!<br />
-                    Vi lär dig lätta brädspel:<br />
-                    Carcassonne, Skyjo, Dragomino, Ohanami, Gold Fever<br />
-                    Ålder: 4-99
-                </p>
-
-                <div class="row space-between">
-                    <div>
-                        MEDEL - AVANCERAD
-                    </div>
-                    <div>
-                        18:00 - 21:00
-                    </div>
-                </div>
-
-                <p class="margin-bottom-8">
-                    Är du en van brädspelare, eller nyfiken på mer avancerade brädspel?<br />
-                    Då är det här tillfället för dig!<br />
-                    Vi spelar spel som Root, Everdell och Rajas of the Ganges.
-                </p>
-
-                <h3 class="font-size-24 margin-bottom-8 margin-top-16">
-                    Speciella evenemang
-                </h3>
-
-                <div class="font-size-16 row space-between">
-                    <div>
-                        För aktuella evenemang, se vår <a href="https://facebook.com/ektrollet">facebook-sida</a>.
-                    </div>
-                </div>
-
-                <h2 id="bokning" class="font-weight-700 font-size-24 margin-top-64 margin-bottom-8">Bokning</h2>
-
-                <p class="margin-bottom-8">
-                    För att boka bord hos oss ring på 076-00 55 613 eller skriv till oss på Messenger.<br />
-                    Ange datum, klockslag, namn, mobilnummer samt antal personer.
-                </p>
-
-                <p>
-                    Det är möjligt att reservera spel till din bokning. Skriv om du önskar att spelet är uppställt när
-                    du kommer.
-                </p>
-
-
-
-
-                <h2 id="oppettider" class="font-weight-700 font-size-24 margin-top-64 margin-bottom-8">Öppettider</h2>
-
-                <div class="row width-100p space-between max-width-300">
-                    <div>
-                        Måndag</div>
-                    <div>13:00 - 21:00</div>
-                </div>
-                <div class="row width-100p space-between max-width-300">
-                    <div>
-                        Tisdag</div>
-                    <div>13:00 - 17:00</div>
-                </div>
-                <div class="row width-100p space-between max-width-300">
-                    <div>
-                        Onsdag</div>
-                    <div>13:00 - 17:00</div>
-                </div>
-                <div class="row width-100p space-between max-width-300">
-                    <div>
-                        Torsdag</div>
-                    <div>STÄNGT</div>
-                </div>
-                <div class="row width-100p space-between max-width-300">
-                    <div>
-                        Fredag</div>
-                    <div>13:00 - 17:00</div>
-                </div>
-                <div class="row width-100p space-between max-width-300">
-                    <div>
-                        Lördag</div>
-                    <div>13:00 - 21:00</div>
-                </div>
-                <div class="row width-100p space-between max-width-300">
-                    <div>
-                        Söndag</div>
-                    <div>STÄNGT
-                    </div>
-                </div>
-
-
-
-
-
-
-
-                <h2 id="omoss" class="font-size-32 font-weight-700 margin-bottom-8 margin-top-64">
-                    Om oss
-                </h2>
-                <div class="row gap-16 margin-16 space-between">
-                    <div class="">
-                        <img alt="Cindy" class="drop-shadow-s rounded" src="assets/foton/cindy.jpg" />
-                    </div>
-                    <div class="">
-                        <img alt="Jona med Mjöd och Carcassonne" class="drop-shadow-s rounded"
-                            src="assets/foton/jona.jpg" />
-                    </div>
-                    <p>
-
-                    </p>
-                </div>
-                <p class="margin-bottom-8">
-                    Vi som driver Ektrollet är Cindy och Jona, och ibland är vår son Josh med och hjälper till.
-                </p>
-                <p class="margin-bottom-8">
-                    Cindy gillar vackra spel, oavsett komplexitet. Det är också viktigt med överraskningar, ett spel som
-                    utspelar sig likadant varje gång är inget för henne. Verdant är hennes nuvarande favorit.
-                </p>
-                <p class="margin-bottom-8">
-                    Jona föredrar spel där han kan vara skurken. Nog för att han är ganska snäll annars, men i spel vill
-                    han utmana och utmanas. Oath och Beast passar honom bra, där han får spela roller där det förväntas
-                    av honom att ställa till det för andra.
-                </p>
-                <p class="margin-bottom-8">
-                    Utöver våra favoriter älskar vi att hjälpa andra ha roligt med brädspel. Jona avskydde brädspel i 25
-                    år, innan han började spela med Cindy. Då insåg han att det viktigaste är att hitta rätt grupp
-                    spelare, spelare som tycker om att ha trevligt och roligt, hellre än att tjafsa om regler.
-                </p>
-                <h3 id="spelkompis" class="font-size-18 margin-bottom-8 margin-top-8">Spelkompis-listan</h3>
-                <p>
-                    För att uppmuntra andra att prova brädspel, och för att motverka ensamheten många känner, har vi en
-                    Spelkompisar-lista i caféet, där spelare skriver upp vad de vill spela och sitt telefonnummer. Vissa
-                    väljer att lämna sitt telefonnummer till oss istället. Därefter är vi uppmärksamma på när andra
-                    gäster frågar efter vissa spel, och uppmuntrar dem till att kontakta potentiella matchningar.
-                </p>
-
-
-
-
-
-                <h2 id="kontakt" class="font-weight-700 font-size-24 margin-bottom-8 margin-top-64">Kontakt</h2>
-                <p>
-                <div class="row gap-8 space-between">
-                    <div class="column">
-                        <div class="row">
-                            <div class="width-100">Telefon</div>
-                            <div>076-00 55 613</div>
-                        </div>
-                        <div class="row">
-                            <div class="width-100">
-                                Adress
-                            </div>
-                            <div>
-                                Ektrollet<br />
-                                Storgatan 26<br />
-                                592 30 Vadstena
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row gap-8">
-                        <a href="https://www.instagram.com/ektrollet/"><img width="64" height="64" alt="Instagram logga"
-                                src="assets/instagram_icon.svg" /></a>
-                        <a href="https://www.facebook.com/ektrollet/">
-                            <img width="64" height="64" alt="Facebook logga" src="assets/facebook_icon.svg" />
-                        </a>
-                    </div>
-                </div>
+          </div>
+
+          <h2
+            id="bokning"
+            class="font-weight-700 font-size-24 margin-top-64 margin-bottom-8"
+          >
+            Bokning
+          </h2>
+
+          <p class="margin-bottom-8">
+            För att boka bord hos oss ring på 076-00 55 613 eller skriv till oss
+            på Messenger.<br />
+            Ange datum, klockslag, namn, mobilnummer samt antal personer.
+          </p>
+
+          <p>
+            Det är möjligt att reservera spel till din bokning. Skriv om du
+            önskar att spelet är uppställt när du kommer.
+          </p>
+
+          <h2
+            id="oppettider"
+            class="font-weight-700 font-size-24 margin-top-64 margin-bottom-8"
+          >
+            Öppettider
+          </h2>
+
+          <p class="color-red font-size-24 margin-bottom-16">
+            Stängt idag (fr.o.m. fredag 15 dec) p.g.a. sjukdom
+          </p>
+
+          <div class="row width-100p space-between max-width-300">
+            <div>Måndag</div>
+            <div>13:00 - 21:00</div>
+          </div>
+          <div class="row width-100p space-between max-width-300">
+            <div>Tisdag</div>
+            <div>13:00 - 17:00</div>
+          </div>
+          <div class="row width-100p space-between max-width-300">
+            <div>Onsdag</div>
+            <div>13:00 - 17:00</div>
+          </div>
+          <div class="row width-100p space-between max-width-300">
+            <div>Torsdag</div>
+            <div>STÄNGT</div>
+          </div>
+          <div class="row width-100p space-between max-width-300">
+            <div>Fredag</div>
+            <div>13:00 - 17:00</div>
+          </div>
+          <div class="row width-100p space-between max-width-300">
+            <div>Lördag</div>
+            <div>13:00 - 21:00</div>
+          </div>
+          <div class="row width-100p space-between max-width-300">
+            <div>Söndag</div>
+            <div>STÄNGT</div>
+          </div>
+
+          <h2
+            id="omoss"
+            class="font-size-32 font-weight-700 margin-bottom-8 margin-top-64"
+          >
+            Om oss
+          </h2>
+          <div class="row gap-16 margin-16 space-between">
+            <div class="">
+              <img
+                alt="Cindy"
+                class="drop-shadow-s rounded"
+                src="assets/foton/cindy.jpg"
+              />
             </div>
-        </div>
-</body>
+            <div class="">
+              <img
+                alt="Jona med Mjöd och Carcassonne"
+                class="drop-shadow-s rounded"
+                src="assets/foton/jona.jpg"
+              />
+            </div>
+            <p></p>
+          </div>
+          <p class="margin-bottom-8">
+            Vi som driver Ektrollet är Cindy och Jona, och ibland är vår son
+            Josh med och hjälper till.
+          </p>
+          <p class="margin-bottom-8">
+            Cindy gillar vackra spel, oavsett komplexitet. Det är också viktigt
+            med överraskningar, ett spel som utspelar sig likadant varje gång är
+            inget för henne. Verdant är hennes nuvarande favorit.
+          </p>
+          <p class="margin-bottom-8">
+            Jona föredrar spel där han kan vara skurken. Nog för att han är
+            ganska snäll annars, men i spel vill han utmana och utmanas. Oath
+            och Beast passar honom bra, där han får spela roller där det
+            förväntas av honom att ställa till det för andra.
+          </p>
+          <p class="margin-bottom-8">
+            Utöver våra favoriter älskar vi att hjälpa andra ha roligt med
+            brädspel. Jona avskydde brädspel i 25 år, innan han började spela
+            med Cindy. Då insåg han att det viktigaste är att hitta rätt grupp
+            spelare, spelare som tycker om att ha trevligt och roligt, hellre än
+            att tjafsa om regler.
+          </p>
+          <h3 id="spelkompis" class="font-size-18 margin-bottom-8 margin-top-8">
+            Spelkompis-listan
+          </h3>
+          <p>
+            För att uppmuntra andra att prova brädspel, och för att motverka
+            ensamheten många känner, har vi en Spelkompisar-lista i caféet, där
+            spelare skriver upp vad de vill spela och sitt telefonnummer. Vissa
+            väljer att lämna sitt telefonnummer till oss istället. Därefter är
+            vi uppmärksamma på när andra gäster frågar efter vissa spel, och
+            uppmuntrar dem till att kontakta potentiella matchningar.
+          </p>
 
+          <h2
+            id="kontakt"
+            class="font-weight-700 font-size-24 margin-bottom-8 margin-top-64"
+          >
+            Kontakt
+          </h2>
+          <p></p>
+          <div class="row gap-8 space-between">
+            <div class="column">
+              <div class="row">
+                <div class="width-100">Telefon</div>
+                <div>076-00 55 613</div>
+              </div>
+              <div class="row">
+                <div class="width-100">Adress</div>
+                <div>
+                  Ektrollet<br />
+                  Storgatan 26<br />
+                  592 30 Vadstena
+                </div>
+              </div>
+            </div>
+            <div class="row gap-8">
+              <a href="https://www.instagram.com/ektrollet/"
+                ><img
+                  width="64"
+                  height="64"
+                  alt="Instagram logga"
+                  src="assets/instagram_icon.svg"
+              /></a>
+              <a href="https://www.facebook.com/ektrollet/">
+                <img
+                  width="64"
+                  height="64"
+                  alt="Facebook logga"
+                  src="assets/facebook_icon.svg"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
